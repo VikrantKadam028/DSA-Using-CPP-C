@@ -7,7 +7,6 @@ public:
             mp[n]++;
         }
 
-        sort(nums.begin(), nums.end());
         int maxi = INT_MIN;
 
         for (auto& it : mp) {
