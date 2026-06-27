@@ -37,9 +37,9 @@ public:
             }
 
             if (mp[curr] >= 1)
-                maxi = max(maxi, len);
+                maxi = max(maxi, len);//center exist
             else
-                maxi = max(maxi, len - 1);
+                maxi = max(maxi, len - 1);// center not exist
         }
         return maxi;
     }
