@@ -1,14 +1,18 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int row = matrix.size();
-        int col = matrix[0].size();
+        int r = 0;
+int c = matrix[0].size() - 1;
 
-        for(int i=0;i<row;i++){
-            for(int j = 0;j<col;j++){
-                if(target == matrix[i][j]) return true;
-            }
-        }
-        return false;
+while (r < matrix.size() && c >= 0) {
+    if (matrix[r][c] == target)
+        return true;
+    else if (matrix[r][c] > target)
+        c--;
+    else
+        r++;
+}
+
+return false;
     }
 };
