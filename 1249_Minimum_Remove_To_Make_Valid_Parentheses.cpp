@@ -17,7 +17,8 @@ public:
         }
 
         while (!st.empty()) {
-            s[st.top().second] = '*';
+            s[st.top().second] = '*'; // erase takes O(n) So, it becomesO(n^2), So mark that char
+                     // as '*', and then rebuild string.
             st.pop();
         }
 
