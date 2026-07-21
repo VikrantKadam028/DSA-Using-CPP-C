@@ -1,6 +1,10 @@
 class Solution {
 public:
     int maxActiveSectionsAfterTrade(string s) {
+        // 1. First count the 0's before the 1 and after the 1's, and add it to
+        // inactive vector.
+        // 2. find the max sum pair from inactive.
+        // 3. The return the total 1's cnt + maxi.
         int ones = count(begin(s), end(s), '1');
         int n = s.length();
         vector<int> inactive;
