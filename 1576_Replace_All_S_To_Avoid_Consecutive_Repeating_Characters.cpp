@@ -7,6 +7,7 @@ public:
             mpp[i] = 'a' + i;
         }
 
+        //edge case
         if (s.length() >= 26) {
             int idx = 0;
             for (int i = 0; i < s.length(); i++) {
