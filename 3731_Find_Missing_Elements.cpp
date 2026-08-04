@@ -1,20 +1,19 @@
 class Solution {
 public:
     vector<int> findMissingElements(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-
-        int smallest = nums[0];
-        int largest = nums[nums.size() - 1];
+        int smallest = *min_element(nums.begin(), nums.end());
+        int largest = *max_element(nums.begin(), nums.end());
 
         vector<int> result;
 
-        unordered_map<int, int> freq;
+        // unordered_map<int, int> freq;
+        vector<int> hash(101, 0);
         for (int n : nums) {
-            freq[n]++;
+            hash[n] = 1;
         }
 
         for (int i = smallest; i <= largest; i++) {
-            if (freq.find(i) == freq.end()) {
+            if (hash[i] == 0) {
                 result.push_back(i);
             }
         }
