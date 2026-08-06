@@ -1,6 +1,10 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
+        //1. Identify the sorted part
+        //2. Get the minimum(if sorted, the first element must be the smallest).
+        //3. Eliminate the sorted part.
+
         int mini = INT_MAX;
         int n = nums.size();
 
