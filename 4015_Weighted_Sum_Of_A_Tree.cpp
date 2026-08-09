@@ -36,9 +36,9 @@ public:
             }
         }
 
-        dfs(root, -1, 0);
-        long long maxHeight = *max_element(height.begin(), height.end());
+        dfs(root, root, 0);
 
+        long long maxHeight = *max_element(height.begin(), height.end());
         long long sum = 0;
         for (int i = 0; i < nums.size(); i++) {
             sum += nums[i] * (maxHeight - depth[i] + 1);
