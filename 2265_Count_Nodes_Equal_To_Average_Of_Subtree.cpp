@@ -31,34 +31,37 @@ public:
         getInorder(root->right, result);
     }
 
-    TreeNode* search(TreeNode* root, int key) {
-        if (root == nullptr)
-            return nullptr;
+    // TreeNode* search(TreeNode* root, int key) {
+    //     if (root == nullptr)
+    //         return nullptr;
 
-        if (root->val == key) {
-            return root;
-        }
+    //     if (root->val == key) {
+    //         return root;
+    //     }
 
-        TreeNode* tempRoot = search(root->left, key);
+    //     TreeNode* tempRoot = search(root->left, key);
 
-        if (tempRoot != NULL)
-            return tempRoot;
+    //     if (tempRoot != NULL)
+    //         return tempRoot;
 
-        return search(root->right, key);
-    }
+    //     return search(root->right, key);
+    // }
 
     int averageOfSubtree(TreeNode* root) {
 
+        //first get all node values into nums, to process each one later individually.
         vector<TreeNode*> nums;
         getInorder(root, nums);
 
         int cnt = 0;
 
+        //for each tree root value, get the sum, cntNodes and compute avg for each node.
         for (TreeNode* n : nums) {
 
             int sum = 0;
             int NoOfNodes = 0;
 
+            //here no need to implement search, as we are directly using the node address.
             getSum(n, NoOfNodes, sum);
 
             int avg = sum / NoOfNodes;
