@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //Key Idea: Dekho, same element to continous choose karte raho jab tak vo base condn hit na kare, jab vo hit kare then return karo prev stage ko with sum -= no and pop oper. uske baad hum same no ya uske pehle no ko nahi le sakte so ab aage badho with idx + 1, and done. :)
     void func(vector<int>& nums, int n, int idx, int target, vector<int>& diary,
               vector<vector<int>>& res, int sum) {
         if (sum == target) {
