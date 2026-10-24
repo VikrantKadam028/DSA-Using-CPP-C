@@ -20,7 +20,7 @@ public:
         temp.pop_back();
 
         // nahi lenge
-        // 
+        // Optimization (for duplicates) : jab nahi lenge ek no ko, tab uske adjacent duplicates ko bhi skip karenge.
         int i = idx;
         while (i < n - 1 && nums[i] == nums[i + 1]) {
             i++;
