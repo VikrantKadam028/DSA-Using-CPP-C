@@ -6,23 +6,44 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
- * right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    bool isMirror(TreeNode* a, TreeNode* b) {
-        if (!a && !b) return true;
-        if (!a || !b) return false;
+    bool mirror(TreeNode* root1, TreeNode* root2){
+        if(root1 == nullptr && root2 == nullptr){
+            return true;
+        }
 
-        return (a->val == b->val) &&
-               isMirror(a->left, b->right) &&
-               isMirror(a->right, b->left);
+        if(root1 == nullptr || root2 == nullptr){
+            return false;
+        }
+
+        if(root1->val != root2->val){
+            return false;
+        }
+
+        bool r1 = mirror(root1->left, root2->right);
+        bool r2 = mirror(root1->right, root2->left);
+
+        if(r1 == true && r2 == true){
+            return true;
+        }
+        return false;
     }
-
     bool isSymmetric(TreeNode* root) {
-        if (!root) return true;
-        return isMirror(root->left, root->right);
+        if(root == nullptr) return true;
+        if(root->left == nullptr && root->right == nullptr){
+            return true;
+        }
+        if(root->left == nullptr || root->right == nullptr){
+            return false;
+        }
+        if(root->left->val != root->right->val){
+            return false;
+        }
+
+        return mirror(root->left, root->right);
     }
 };
