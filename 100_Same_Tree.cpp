@@ -12,10 +12,29 @@
  */
 class Solution {
 public:
+    bool func(TreeNode* root1, TreeNode* root2) {
+        // both null
+        if (root1 == nullptr && root2 == nullptr) {
+            return true;
+        }
+
+        if (root1 == nullptr || root2 == nullptr){
+            return false;
+        }
+
+        if(root1->val != root2->val){
+            return false;
+        }
+
+        bool r1 = func(root1->left, root2->left);
+        bool r2 = func(root1->right, root2->right);
+
+        if(r1 == true && r2 == true){
+            return true;
+        }
+        return false;
+    }
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (!p && !q) return true;        
-        if (!p || !q) return false;        
-        if (p->val != q->val) return false;
-        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        return func(p,q);
     }
 };
