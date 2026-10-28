@@ -12,18 +12,18 @@
  */
 class Solution {
 public:
-    void func(TreeNode* root, vector<vector<int>>& ans) {
+    void func(TreeNode* root, vector<int>& ans) {
         queue<TreeNode*> q;
         q.push(root);
 
         while (!q.empty()) {
             int lvl = q.size();
-            vector<int> temp;
+            int maxi = INT_MIN;
 
             while (lvl--) {
                 TreeNode* t = q.front();
                 q.pop();
-                temp.push_back(t->val);
+                maxi = max(maxi, t->val);
 
                 if (t->left != nullptr) {
                     q.push(t->left);
@@ -34,24 +34,24 @@ public:
                 }
             }
 
-            ans.push_back(temp);
+            ans.push_back(maxi);
         }
     }
 
     vector<int> largestValues(TreeNode* root) {
         if (root == nullptr)
             return {};
-        vector<vector<int>> ans;
+        vector<int> ans;
         func(root, ans);
 
-        vector<int> result;
-        for (auto it : ans) {
-            if (it.empty())
-                continue;
+        // vector<int> result;
+        // for (auto it : ans) {
+        //     if (it.empty())
+        //         continue;
 
-            auto it2 = max_element(it.begin(), it.end());
-            result.push_back(*it2);
-        }
-        return result;
+        //     auto it2 = max_element(it.begin(), it.end());
+        //     result.push_back(*it2);
+        // }
+        return ans;
     }
 };
