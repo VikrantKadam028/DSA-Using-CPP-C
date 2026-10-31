@@ -2,12 +2,6 @@ class Solution {
 public:
     void func(vector<int>& nums, vector<vector<int>>& ans, vector<int>& temp,
               int idx, int n, int k) {
-        // if (temp.size() > 1 && idx > 1) {
-        //     if (abs(temp[idx - 1] - temp[idx]) == k) {
-        //         return;
-        //     }
-        // }
-
         if (idx == n) {
             ans.push_back(temp);
             return;
