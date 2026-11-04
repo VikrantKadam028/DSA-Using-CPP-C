@@ -25,7 +25,7 @@ public:
                     if (mpp[num] == 0) {
                         mpp.erase(num);
                     }
-                    if (mpp.find(toFind) != mpp.end() && mpp[toFind] == 0)
+                    if (mpp[toFind] == 0)
                         mpp.erase(toFind);
                 }
             }
